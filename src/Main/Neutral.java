@@ -31,6 +31,7 @@ public class Neutral {
 
         nextWindow.initStyle(StageStyle.UNDECORATED);
         nextWindow.setScene(new Scene(next, 340, 450));
+        nextWindow.getIcons().add(new javafx.scene.image.Image("icon.png"));
         nextWindow.show();
         thisWindow.close();
     }
@@ -48,6 +49,7 @@ public class Neutral {
         Stage window = new Stage();
         window.setAlwaysOnTop(true);
         window.initStyle(StageStyle.UNDECORATED);
+        window.getIcons().add(new javafx.scene.image.Image("icon.png"));
         window.setScene(new Scene(startWindow, 360, 240));
         window.show();
     }
@@ -65,6 +67,7 @@ public class Neutral {
         Stage window = new Stage();
         window.setAlwaysOnTop(true);
         window.initStyle(StageStyle.UNDECORATED);
+        window.getIcons().add(new javafx.scene.image.Image("icon.png"));
         window.setScene(new Scene(startWindow, 354, 240));
         window.show();
     }
@@ -75,6 +78,7 @@ public class Neutral {
 
         Stage window = new Stage();
         window.initStyle(StageStyle.UNDECORATED);
+        window.getIcons().add(new javafx.scene.image.Image("icon.png"));
         window.setScene(new Scene(startWindow, 280, 310));
         window.show();
     }
