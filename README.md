@@ -1,5 +1,5 @@
 # MyMessageManager
-If you find any issues please post them, also star this repo if you like the application.
+If you find any issues please post them, also star this repository if you like the application.
 
 ## Overview
 Manage your discord account by deleting old, unwanted messages in a guild, channel or DM - faster than any other version.
