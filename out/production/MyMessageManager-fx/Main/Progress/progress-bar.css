@@ -1,0 +1,15 @@
+.progress-bar {
+    -fx-border-color: black;
+}
+
+.progress-bar > .track {
+    -fx-text-box-border: #2D3447;
+    -fx-control-inner-background: #2D3447;
+	-fx-background-insets: 0;
+}
+
+.progress-bar .bar {
+    -fx-accent: #91e874;
+	-fx-padding: 0px; 
+	-fx-background-insets: 0;
+}
