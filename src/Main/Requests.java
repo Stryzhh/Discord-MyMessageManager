@@ -168,15 +168,13 @@ public class Requests {
             int resp = DELETE(Config.channelIDs.get(count), item);
 
             if (resp == 204) {
-                double result = (double) (Config.amountOfMessages - (Config.messages.size() - 1))
-                        / Config.amountOfMessages * 100;
+                double result = (double) (Config.amountOfMessages - (Config.messages.size() - 1)) / Config.amountOfMessages * 100;
 
                 Platform.runLater(() -> {
                     Config.deletedList.getItems().add("ID: " + item + " - " + (int) result + "%");
                     Config.progressBar.setProgress(result / 100);
                     Config.status.setText("status: deleting messages...");
                 });
-
                 Config.messages.remove(item);
             } else if (resp == 429) {
                 Platform.runLater(() -> Config.status.setText("status: awaiting API..."));
@@ -206,8 +204,7 @@ public class Requests {
             int resp = DELETE(Config.channelID, item);
 
             if (resp == 204) {
-                double result = (double) (Config.amountOfMessages - (Config.messages.size() - 1))
-                        / Config.amountOfMessages * 100;
+                double result = (double) (Config.amountOfMessages - (Config.messages.size() - 1)) / Config.amountOfMessages * 100;
 
                 Platform.runLater(() -> {
                     Config.deletedList.getItems().add("ID: " + item + " - " + (int) result + "%");

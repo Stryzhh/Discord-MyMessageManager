@@ -146,6 +146,8 @@ public class ManagerController implements Initializable {
     }
 
     public void setConfig() throws IOException {
+        Config.request = new Requests();
+        Config.cancel = false;
         String code = "";
         setConfig = true;
 
@@ -164,7 +166,18 @@ public class ManagerController implements Initializable {
         Config.savedGuildID = guild.getText();
         Config.savedChannelID = channel.getText();
 
-        if (setConfig) {
+        if (Config.guildID != 0 && Config.channelID == 0) {
+            Config.messages = new ArrayList<>();
+            Config.channelIDs = new ArrayList<>();
+
+            ArrayList<Long> channels = Config.request.GET_CHANNELS();
+            for (Long id : channels) {
+                Config.channelIDs.add(id);
+                Config.channelID = id;
+                Config.request.GET_ALL_MESSAGES();
+            }
+            Config.request.BEGIN(false);
+        } else if (setConfig) {
             Neutral.changeWindow("Main/DeleteOptions/options.fxml", window);
         }
     }

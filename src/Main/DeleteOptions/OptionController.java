@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -51,12 +52,13 @@ public class OptionController implements Initializable {
     private ImageView startCalendar;
     @FXML
     private ImageView endCalendar;
+    @FXML
+    private Label lblClick;
     private CalendarWindow calendarS;
     private CalendarWindow calendarE;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Config.request = new Requests();
         Config.window = window;
         Config.txtStart = start;
         Config.txtEnd = end;
@@ -166,17 +168,6 @@ public class OptionController implements Initializable {
                     Config.messages = new ArrayList<>();
                     Config.request.GET_ALL_MESSAGES();
                     Config.request.BEGIN(true);
-                } else if (Config.guildID != 0) {
-                    Config.messages = new ArrayList<>();
-                    Config.channelIDs = new ArrayList<>();
-
-                    ArrayList<Long> channels = Config.request.GET_CHANNELS();
-                    for (Long id : channels) {
-                        Config.channelIDs.add(id);
-                        Config.channelID = id;
-                        Config.request.GET_ALL_MESSAGES();
-                    }
-                    Config.request.BEGIN(false);
                 }
             }
         } catch (Exception ex) {
